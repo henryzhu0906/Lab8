@@ -11,7 +11,6 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 
 public class CustomListTest {
-    private int a;
     /**
      * get the size of the list
      * increase the list by adding a new city
