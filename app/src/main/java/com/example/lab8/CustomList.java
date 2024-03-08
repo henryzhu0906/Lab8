@@ -1,7 +1,6 @@
 package com.example.lab8;
 
 import android.content.Context;
-import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class CustomList extends ArrayAdapter<City> {
 
@@ -67,13 +67,15 @@ public class CustomList extends ArrayAdapter<City> {
         return false;
     }
     public void deleteCity(String cityName) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            cities.removeIf(city -> city.getCityName().equals(cityName));
+        Iterator<City> iterator = cities.iterator();
+        while (iterator.hasNext()) {
+            City city = iterator.next();
+            if (city.getCityName().equals(cityName)) {
+                iterator.remove();
+                // Assuming each city name is unique, break after finding and removing the city
+                break;
+            }
         }
     }
-    public int countCities() {
-        return getCount();
-    }
-
 
 }
