@@ -53,6 +53,13 @@ public class CustomListTest {
         list.deleteCity("Moose Jaw");
         assertFalse(list.hasCity("Moose Jaw"));
     }
+    @Test
+    public void testCountCities() {
+        CustomList list = MockCityList();
+        list.addCity(new City("Saskatoon", "SK"));
+        list.addCity(new City("Regina", "SK"));
+        assertEquals(2, list.countCities());
+    }
 
 
 
