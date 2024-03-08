@@ -1,6 +1,7 @@
 package com.example.lab8;
 
 import android.content.Context;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -64,6 +65,11 @@ public class CustomList extends ArrayAdapter<City> {
             }
         }
         return false;
+    }
+    public void deleteCity(String cityName) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            cities.removeIf(city -> city.getCityName().equals(cityName));
+        }
     }
 
 }
