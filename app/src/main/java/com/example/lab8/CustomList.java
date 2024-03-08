@@ -67,15 +67,13 @@ public class CustomList extends ArrayAdapter<City> {
         return false;
     }
     public void deleteCity(String cityName) {
-        Iterator<City> iterator = cities.iterator();
-        while (iterator.hasNext()) {
-            City city = iterator.next();
-            if (city.getCityName().equals(cityName)) {
-                iterator.remove();
-                // Assuming each city name is unique, break after finding and removing the city
+        for (int i = 0; i < cities.size(); i++) {
+            if (cities.get(i).getCityName().equals(cityName)) {
+                cities.remove(i);
                 break;
             }
         }
     }
+
 
 }
