@@ -71,5 +71,9 @@ public class CustomList extends ArrayAdapter<City> {
             cities.removeIf(city -> city.getCityName().equals(cityName));
         }
     }
+    public int countCities() {
+        return getCount();
+    }
+
 
 }
